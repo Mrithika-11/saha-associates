@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: auto; /* Lenis controls smooth scroll instead */
+  }
+  body {
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display text-navy;
+  }
+  ::selection {
+    @apply bg-gold/30 text-navy;
+  }
+}
+
+@layer components {
+  /* Eyebrow label styled like a drafting callout, e.g. "FIG. 02 — SERVICES" */
+  .drawing-label {
+    @apply inline-flex items-center gap-3 text-xs font-display font-semibold tracking-widest2 uppercase text-gold;
+  }
+  .drawing-label::before {
+    content: "";
+    @apply block w-8 h-px bg-gold;
+  }
+
+  /* Corner-bracket frame, like crop marks on a technical drawing */
+  .blueprint-frame {
+    @apply relative;
+  }
+  .blueprint-frame::before,
+  .blueprint-frame::after {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-color: theme("colors.gold.DEFAULT");
+    transition: all 0.3s ease;
+  }
+  .blueprint-frame::before {
+    top: -1px;
+    left: -1px;
+    border-top: 2px solid;
+    border-left: 2px solid;
+  }
+  .blueprint-frame::after {
+    bottom: -1px;
+    right: -1px;
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-gold text-navy font-display font-semibold px-8 py-4 uppercase text-sm tracking-wider transition-transform duration-300 hover:-translate-y-0.5;
+  }
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border border-white/30 text-white font-display font-semibold px-8 py-4 uppercase text-sm tracking-wider transition-colors duration-300 hover:bg-white hover:text-navy;
+  }
+
+  .section-pad {
+    @apply py-24 md:py-32 px-6 md:px-12 lg:px-20;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f4f6f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #0b1f3a;
+}
