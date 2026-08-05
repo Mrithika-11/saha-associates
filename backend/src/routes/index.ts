@@ -1,11 +1,11 @@
 import { Router } from "express";
-import authRoutes from "./auth.routes";
-import projectRoutes from "./project.routes";
-import serviceRoutes from "./service.routes";
-import blogRoutes from "./blog.routes";
-import testimonialRoutes from "./testimonial.routes";
-import careerRoutes from "./career.routes";
-import contactRoutes from "./contact.routes";
+import authRoutes from "./auth.routes.js";
+import projectRoutes from "./project.routes.js";
+import serviceRoutes from "./service.routes.js";
+import blogRoutes from "./blog.routes.js";
+import testimonialRoutes from "./testimonial.routes.js";
+import careerRoutes from "./career.routes.js";
+import contactRoutes from "./contact.routes.js";
 
 const router = Router();
 

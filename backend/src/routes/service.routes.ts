@@ -5,15 +5,30 @@ import {
   createService,
   updateService,
   deleteService,
-} from "@/controllers/service.controller";
-import { requireAuth, requireRole } from "@/middleware/auth.middleware";
+} from "@/controllers/service.controller.js";
+import { requireAuth, requireRole } from "@/middleware/auth.middleware.js";
 
 const router = Router();
 
 router.get("/", getServices);
 router.get("/:slug", getServiceBySlug);
-router.post("/", requireAuth, requireRole("SUPER_ADMIN", "ADMIN", "EDITOR"), createService);
-router.put("/:id", requireAuth, requireRole("SUPER_ADMIN", "ADMIN", "EDITOR"), updateService);
-router.delete("/:id", requireAuth, requireRole("SUPER_ADMIN", "ADMIN"), deleteService);
+router.post(
+  "/",
+  requireAuth,
+  requireRole("SUPER_ADMIN", "ADMIN", "EDITOR"),
+  createService,
+);
+router.put(
+  "/:id",
+  requireAuth,
+  requireRole("SUPER_ADMIN", "ADMIN", "EDITOR"),
+  updateService,
+);
+router.delete(
+  "/:id",
+  requireAuth,
+  requireRole("SUPER_ADMIN", "ADMIN"),
+  deleteService,
+);
 
 export default router;

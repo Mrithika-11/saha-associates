@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction, Router } from "express";
 import { z } from "zod";
-import { prisma } from "@/config/db";
-import { transporter } from "@/config/mailer";
-import { requireAuth, requireRole } from "@/middleware/auth.middleware";
+import { prisma } from "@/config/db.js";
+import { transporter } from "@/config/mailer.js";
+import { requireAuth, requireRole } from "@/middleware/auth.middleware.js";
 
 const contactSchema = z.object({
   name: z.string().min(2),

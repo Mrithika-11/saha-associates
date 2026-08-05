@@ -1,0 +1,54 @@
+
+> saha-associates-backend@1.0.0 build
+> tsc && tsc-alias
+
+src/app.ts(7,20): error TS2307: Cannot find module '@/routes/index' or its corresponding type declarations.
+src/app.ts(8,47): error TS2307: Cannot find module '@/middleware/errorHandler' or its corresponding type declarations.
+src/app.ts(9,27): error TS2307: Cannot find module './routes/contact.routes' or its corresponding type declarations.
+src/controllers/auth.controller.ts(3,24): error TS2307: Cannot find module '@/config/db' or its corresponding type declarations.
+src/controllers/auth.controller.ts(4,45): error TS2307: Cannot find module '@/validators/auth.validator' or its corresponding type declarations.
+src/controllers/auth.controller.ts(5,31): error TS2307: Cannot find module '@/utils/generateToken' or its corresponding type declarations.
+src/controllers/auth.controller.ts(6,26): error TS2307: Cannot find module '@/middleware/errorHandler' or its corresponding type declarations.
+src/controllers/blog.controller.ts(3,24): error TS2307: Cannot find module '@/config/db' or its corresponding type declarations.
+src/controllers/blog.controller.ts(4,26): error TS2307: Cannot find module '@/middleware/errorHandler' or its corresponding type declarations.
+src/controllers/project.controller.ts(2,24): error TS2307: Cannot find module '@/config/db' or its corresponding type declarations.
+src/controllers/project.controller.ts(3,52): error TS2307: Cannot find module '@/validators/project.validator' or its corresponding type declarations.
+src/controllers/project.controller.ts(4,26): error TS2307: Cannot find module '@/middleware/errorHandler' or its corresponding type declarations.
+src/controllers/service.controller.ts(3,24): error TS2307: Cannot find module '@/config/db' or its corresponding type declarations.
+src/controllers/service.controller.ts(4,26): error TS2307: Cannot find module '@/middleware/errorHandler' or its corresponding type declarations.
+src/middleware/upload.middleware.ts(3,24): error TS2307: Cannot find module '@/config/cloudinary' or its corresponding type declarations.
+src/routes/auth.routes.ts(2,40): error TS2307: Cannot find module '@/controllers/auth.controller' or its corresponding type declarations.
+src/routes/auth.routes.ts(3,29): error TS2307: Cannot find module '@/middleware/auth.middleware' or its corresponding type declarations.
+src/routes/blog.routes.ts(8,8): error TS2307: Cannot find module '@/controllers/blog.controller' or its corresponding type declarations.
+src/routes/blog.routes.ts(9,42): error TS2307: Cannot find module '@/middleware/auth.middleware' or its corresponding type declarations.
+src/routes/career.routes.ts(3,24): error TS2307: Cannot find module '@/config/db' or its corresponding type declarations.
+src/routes/career.routes.ts(4,42): error TS2307: Cannot find module '@/middleware/auth.middleware' or its corresponding type declarations.
+src/routes/career.routes.ts(5,44): error TS2307: Cannot find module '@/middleware/upload.middleware' or its corresponding type declarations.
+src/routes/career.routes.ts(6,26): error TS2307: Cannot find module '@/middleware/errorHandler' or its corresponding type declarations.
+src/routes/career.routes.ts(7,29): error TS2307: Cannot find module '@/config/mailer' or its corresponding type declarations.
+src/routes/contact.routes.ts(3,24): error TS2307: Cannot find module '@/config/db' or its corresponding type declarations.
+src/routes/contact.routes.ts(4,29): error TS2307: Cannot find module '@/config/mailer' or its corresponding type declarations.
+src/routes/contact.routes.ts(5,42): error TS2307: Cannot find module '@/middleware/auth.middleware' or its corresponding type declarations.
+src/routes/contact.routes.ts(30,15): error TS7006: Parameter 'e' implicitly has an 'any' type.
+src/routes/index.ts(2,24): error TS2307: Cannot find module './auth.routes' or its corresponding type declarations.
+src/routes/index.ts(3,27): error TS2307: Cannot find module './project.routes' or its corresponding type declarations.
+src/routes/index.ts(4,27): error TS2307: Cannot find module './service.routes' or its corresponding type declarations.
+src/routes/index.ts(5,24): error TS2307: Cannot find module './blog.routes' or its corresponding type declarations.
+src/routes/index.ts(6,31): error TS2307: Cannot find module './testimonial.routes' or its corresponding type declarations.
+src/routes/index.ts(7,26): error TS2307: Cannot find module './career.routes' or its corresponding type declarations.
+src/routes/index.ts(8,27): error TS2307: Cannot find module './contact.routes' or its corresponding type declarations.
+src/routes/project.routes.ts(8,8): error TS2307: Cannot find module '@/controllers/project.controller' or its corresponding type declarations.
+src/routes/project.routes.ts(9,42): error TS2307: Cannot find module '@/middleware/auth.middleware' or its corresponding type declarations.
+src/routes/service.routes.ts(8,8): error TS2307: Cannot find module '@/controllers/service.controller' or its corresponding type declarations.
+src/routes/service.routes.ts(9,42): error TS2307: Cannot find module '@/middleware/auth.middleware' or its corresponding type declarations.
+src/routes/testimonial.routes.ts(4,24): error TS2307: Cannot find module '@/config/db' or its corresponding type declarations.
+src/routes/testimonial.routes.ts(5,42): error TS2307: Cannot find module '@/middleware/auth.middleware' or its corresponding type declarations.
+src/server.ts(2,17): error TS2307: Cannot find module '@/app' or its corresponding type declarations.
+src/utils/generateToken.ts(2,29): error TS2307: Cannot find module '@/middleware/auth.middleware' or its corresponding type declarations.
+src/utils/generateToken.ts(5,14): error TS2769: No overload matches this call.
+  Overload 1 of 5, '(payload: string | object | Buffer<ArrayBufferLike>, secretOrPrivateKey: null, options?: (SignOptions & { algorithm: "none"; }) | undefined): string', gave the following error.
+    Argument of type 'string' is not assignable to parameter of type 'null'.
+  Overload 2 of 5, '(payload: string | object | Buffer<ArrayBufferLike>, secretOrPrivateKey: Secret | Buffer<ArrayBufferLike> | JsonWebKeyInput | PrivateKeyInput, options?: SignOptions | undefined): string', gave the following error.
+    Type 'string' is not assignable to type 'number | StringValue | undefined'.
+  Overload 3 of 5, '(payload: string | object | Buffer<ArrayBufferLike>, secretOrPrivateKey: Secret | Buffer<ArrayBufferLike> | JsonWebKeyInput | PrivateKeyInput, callback: SignCallback): void', gave the following error.
+    Object literal may only specify known properties, and 'expiresIn' does not exist in type 'SignCallback'.

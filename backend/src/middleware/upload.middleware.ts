@@ -1,6 +1,6 @@
 import multer from "multer";
 import path from "path";
-import cloudinary from "@/config/cloudinary";
+import cloudinary from "@/config/cloudinary.js";
 
 // Temporary local disk storage before streaming to Cloudinary
 const storage = multer.diskStorage({
@@ -11,12 +11,18 @@ const storage = multer.diskStorage({
   },
 });
 
-function fileFilter(_req: Express.Request, file: Express.Multer.File, cb: multer.FileFilterCallback) {
+function fileFilter(
+  _req: Express.Request,
+  file: Express.Multer.File,
+  cb: multer.FileFilterCallback,
+) {
   const allowedImage = /jpeg|jpg|png|webp/;
   const allowedDoc = /pdf/;
   const ext = path.extname(file.originalname).toLowerCase().replace(".", "");
 
-  if (file.fieldname === "resume" ? allowedDoc.test(ext) : allowedImage.test(ext)) {
+  if (
+    file.fieldname === "resume" ? allowedDoc.test(ext) : allowedImage.test(ext)
+  ) {
     cb(null, true);
   } else {
     cb(new Error("Unsupported file type"));

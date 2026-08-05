@@ -1,8 +1,8 @@
 import jwt from "jsonwebtoken";
-import { AuthPayload } from "@/middleware/auth.middleware";
+import { AuthPayload } from "@/middleware/auth.middleware.js";
 
 export function generateToken(payload: AuthPayload) {
-  return jwt.sign(payload, process.env.JWT_SECRET as string, {
-    expiresIn: process.env.JWT_EXPIRES_IN || "7d",
+  return jwt.sign(payload, process.env.JWT_SECRET!, {
+    expiresIn: "7d",
   });
 }

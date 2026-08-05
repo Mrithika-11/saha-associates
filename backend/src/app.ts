@@ -4,9 +4,9 @@ import helmet from "helmet";
 import morgan from "morgan";
 import compression from "compression";
 import rateLimit from "express-rate-limit";
-import routes from "@/routes/index";
-import { errorHandler, notFoundHandler } from "@/middleware/errorHandler";
-import contactRoutes from "./routes/contact.routes";
+import routes from "./routes/index.js";
+import { errorHandler, notFoundHandler } from "./middleware/errorHandler.js";
+import contactRoutes from "./routes/contact.routes.js";
 
 const app = express();
 
@@ -34,7 +34,7 @@ app.use("/api", apiLimiter);
 app.get("/health", (_req, res) => res.json({ status: "ok" }));
 
 // ✅ Register routes BEFORE error handlers
-app.use("/api/contact", contactRoutes);
+
 app.use("/api", routes);
 
 // ✅ Error handlers LAST
