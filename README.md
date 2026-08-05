@@ -325,9 +325,7 @@ Civil Engineering & Structural Consultancy
 
 # 👩‍💻 Developer
 
-Developed with ❤️ by **Mrithika S**
-
----
+## Developed with ❤️ by **Mrithika S**
 
 # 📄 License
 
