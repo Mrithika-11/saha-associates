@@ -15,7 +15,11 @@ app.use(compression());
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://localhost:4173"],
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:4173",
+      "https://saha-associates.onrender.com",
+    ],
     credentials: true,
   }),
 );
