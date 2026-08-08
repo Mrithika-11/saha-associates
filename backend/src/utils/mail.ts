@@ -1,13 +1,13 @@
-import nodemailer from "nodemailer";
+import { BrevoClient } from "@getbrevo/brevo";
 
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: Number(process.env.SMTP_PORT),
-  secure: false,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
+const apiKey = process.env.BREVO_API_KEY;
+
+if (!apiKey) {
+  throw new Error("BREVO_API_KEY is not configured");
+}
+
+const brevo = new BrevoClient({
+  apiKey,
 });
 
-export default transporter;
+export default brevo;

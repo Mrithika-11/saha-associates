@@ -2,7 +2,7 @@ import { Request, Response, NextFunction, Router } from "express";
 import { z } from "zod";
 import { upload } from "@/middleware/upload.middleware.js";
 import { ApiError } from "@/middleware/errorHandler.js";
-import { transporter } from "@/config/mailer.js";
+import brevo from "@/config/mailer.js";
 
 const applicationSchema = z.object({
   fullName: z.string().min(2),
@@ -23,22 +23,41 @@ async function applyForJob(req: Request, res: Response, next: NextFunction) {
       throw new ApiError(400, "Resume file is required");
     }
 
-    await transporter.sendMail({
-      from: process.env.SMTP_USER,
-      to: process.env.CONTACT_RECEIVER_EMAIL,
+    await brevo.transactionalEmails.sendTransacEmail({
+      sender: {
+        name: "Saha Associates Website",
+        email: process.env.BREVO_SENDER_EMAIL!,
+      },
+
+      to: [
+        {
+          email: process.env.CONTACT_RECEIVER_EMAIL!,
+          name: "Saha Associates",
+        },
+      ],
+
+      replyTo: {
+        email: data.email,
+        name: data.fullName,
+      },
+
       subject: `New Career Application - ${data.position}`,
-      html: `
+
+      htmlContent: `
         <h2>New Career Application</h2>
 
         <p><strong>Name:</strong> ${data.fullName}</p>
         <p><strong>Email:</strong> ${data.email}</p>
         <p><strong>Phone:</strong> ${data.phone}</p>
         <p><strong>Position:</strong> ${data.position}</p>
+
+        <p>Please find the candidate's resume attached.</p>
       `,
-      attachments: [
+
+      attachment: [
         {
-          filename: req.file.originalname,
-          path: req.file.path,
+          name: req.file.originalname,
+          url: req.file.path,
         },
       ],
     });
