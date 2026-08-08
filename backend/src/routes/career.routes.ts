@@ -3,6 +3,7 @@ import { z } from "zod";
 import { upload } from "@/middleware/upload.middleware.js";
 import { ApiError } from "@/middleware/errorHandler.js";
 import brevo from "@/config/mailer.js";
+import fs from "fs/promises";
 
 const applicationSchema = z.object({
   fullName: z.string().min(2),
@@ -22,6 +23,12 @@ async function applyForJob(req: Request, res: Response, next: NextFunction) {
     if (!req.file) {
       throw new ApiError(400, "Resume file is required");
     }
+
+    // Read uploaded resume
+    const fileContent = await fs.readFile(req.file.path);
+
+    // Convert resume to Base64 for Brevo
+    const base64File = fileContent.toString("base64");
 
     await brevo.transactionalEmails.sendTransacEmail({
       sender: {
@@ -57,10 +64,13 @@ async function applyForJob(req: Request, res: Response, next: NextFunction) {
       attachment: [
         {
           name: req.file.originalname,
-          url: req.file.path,
+          content: base64File,
         },
       ],
     });
+
+    // Optional: delete temporary uploaded file
+    await fs.unlink(req.file.path).catch(() => {});
 
     res.status(200).json({
       success: true,
