@@ -1,5 +1,5 @@
 import { useGsapReveal } from "@/hooks/useGsapReveal";
-import clientHome from "@/assets/client-home.jpg.jpeg";
+import clientHome from "@/assets/kalki-home.jpg";
 
 export default function CompanyIntro() {
   const ref = useGsapReveal<HTMLDivElement>({ selector: ".reveal-item" });
