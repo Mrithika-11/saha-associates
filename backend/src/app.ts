@@ -19,6 +19,8 @@ app.use(
       "http://localhost:5173",
       "http://localhost:4173",
       "https://saha-associates.onrender.com",
+      "https://sahaassociates.co",
+      "https://www.sahaassociates.co",
     ],
     credentials: true,
   }),
