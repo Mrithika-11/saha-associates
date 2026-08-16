@@ -9,13 +9,9 @@ export default function Footer() {
 
       <div className="relative w-full grid grid-cols-1 md:grid-cols-3 border-b border-white/10 pb-14">
         <div>
-          <Link to="/" className="inline-block mb-4">
-            <img
-              src="/logo.png"
-              alt="SAHA ASSOCIATES"
-              className="h-12 w-auto object-contain bg-white/95 px-3 py-1.5 rounded-md"
-            />
-          </Link>
+          <p className="font-display font-bold text-white text-xl mb-4">
+            SAHA <span className="text-gold">ASSOCIATES</span>
+          </p>
           <p className="text-sm leading-relaxed">
             A multidisciplinary civil engineering and construction consultancy
             engineering structures that last, and relationships that last
