@@ -24,8 +24,12 @@ export default function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-        <Link to="/" className="font-display font-bold text-white text-xl tracking-wide">
-          SAHA <span className="text-gold">ASSOCIATES</span>
+        <Link to="/" className="flex items-center">
+          <img
+            src="/logo.png"
+            alt="SAHA ASSOCIATES"
+            className="h-10 sm:h-12 w-auto object-contain bg-white/95 px-2.5 py-1 rounded-md shadow-sm transition-transform hover:scale-105"
+          />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-10">
